@@ -44,6 +44,7 @@ const FormSubscription = (props) => {
         const subscription={title:form.userTitle, amount:form.userAmount, date: new Date(form.userDate)}
         props.onSave(subscription)
         console.log("form submit",subscription)
+        props.setShowForm(false)
     }
 
   return (
