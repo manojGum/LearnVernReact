@@ -10,19 +10,25 @@ const INITIAL_SUBSCRIPTION = [
     id:1,
     date : (new Date('2022','03','12')),
     title :"Monthly Subscription",
-    amount: '115.60'
+    amount: 115.60
   },
   {
     id:2,
     date : (new Date('2023','05','23')),
     title :"yearly Subscription",
-    amount: '120.60'
+    amount: 120.60
+  },
+  {
+    id:5,
+    date : (new Date('2023','05','23')),
+    title :"yearly Subscription",
+    amount: 120.60
   },
   {
     id:3,
     date : (new Date('2024','02','19')),
     title :"quatraly Subscription",
-    amount: '150.60'
+    amount: 150.60
   }
 ]
 
