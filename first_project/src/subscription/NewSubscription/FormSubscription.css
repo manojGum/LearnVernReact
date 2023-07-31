@@ -27,3 +27,10 @@
 .danger{
     background-color: #a72d2d !important;
 }
+
+.new_subscription_control.invalid input {
+    border-color: red;
+}
+.new_subscription_control.invalid label {
+    color: red;
+}
