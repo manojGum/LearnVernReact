@@ -5,6 +5,7 @@ import NewSubscription from './subscription/NewSubscription/NewSubscription';
 import Container from './teamplate/Container';
 import SubscriptionList from './subscription/SubscriptionList';
 import SubscriptionChart from './subscription/SubscriptionChart';
+import SubscriptionsContext from './store/subscriptions-context';
 const INITIAL_SUBSCRIPTION = [
   {
     id:1,
@@ -62,6 +63,7 @@ const  addSubscriptionHandler=(data)=>{
    <Container>
     <NewSubscription onAddSubscription={addSubscriptionHandler}/>
     <Filter onFilterChange={filterChangeHandler} selectedFilter={filteredYear}/>
+    <SubscriptionsContext.Provider>
     <SubscriptionChart filterSubscriptions= {filterSubscriptions} />
    
    {/* <Subscription date={subscription[0].date} title={subscription[0].title} amount={subscription[0].amount}/>
@@ -77,6 +79,7 @@ const  addSubscriptionHandler=(data)=>{
 
     {/* {containt} */}
     <SubscriptionList  subscriptions={filterSubscriptions} />
+    </SubscriptionsContext.Provider>
    </Container>
   );
 }
