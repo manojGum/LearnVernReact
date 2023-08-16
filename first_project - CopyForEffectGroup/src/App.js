@@ -63,7 +63,7 @@ const  addSubscriptionHandler=(data)=>{
    <Container>
     <NewSubscription onAddSubscription={addSubscriptionHandler}/>
     <Filter onFilterChange={filterChangeHandler} selectedFilter={filteredYear}/>
-    <SubscriptionsContext.Provider>
+    <SubscriptionsContext.Provider value={{subscriptionsList:[]}}>
     <SubscriptionChart filterSubscriptions= {filterSubscriptions} />
    
    {/* <Subscription date={subscription[0].date} title={subscription[0].title} amount={subscription[0].amount}/>
