@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .section{
+            min-height: 100vh;
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .title {
+            font-size: 3rem;
+            margin: 2rem 0rem;
+        }
+        .faq{
+            max-width: 700px;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #fff;
+            cursor: pointer;
+        }
+        .question{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question h3 {
+            font-size: 1.8rem;
+        }
+        .answer{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1.4s ease;
+        }
+        .answer p {
+            padding-top: 1rem;
+            line-height: 1.6rem;
+            font-size: 1.4rem;
+        }
+        .faq.active.answer{
+            max-height: 300px;
+        }
+        .faq.active svg {
+            transform: rotate(180deg);
+        }
+        svg{
+            transition: transform 0.5s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2 class="title">FAQs</h2>
+        <div class="faq">
+            <div class="question">
+                <h3>what is Javascript</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3l21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p> jsalf jlsj fls jflasj lfkja lfj alj flasj flasj flja sflj aslkfj alksj fal;j flasj flkaj sfklaj sflk jalkfj alkfj alkj fklasj  </p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>what is Javascript</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3l21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p> jsalf jlsj fls jflasj lfkja lfj alj flasj flasj flja sflj aslkfj alksj fal;j flasj flkaj sfklaj sflk jalkfj alkfj alkj fklasj  </p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>what is Javascript</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3l21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p> jsalf jlsj fls jflasj lfkja lfj alj flasj flasj flja sflj aslkfj alksj fal;j flasj flkaj sfklaj sflk jalkfj alkfj alkj fklasj  </p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>what is Javascript</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3l21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p> jsalf jlsj fls jflasj lfkja lfj alj flasj flasj flja sflj aslkfj alksj fal;j flasj flkaj sfklaj sflk jalkfj alkfj alkj fklasj  </p>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    const faqs = document.querySelectorAll('.faq');
+    faqs.forEach((faq)=>{
+        faq.addEventListener("click",()=>{
+            faq.classList.toggle("active");
+        })
+    })
+</script>
+</html>
+
+
+
+
+
+
+<div
+id="faq"
+className={feedbackstyle.faq_body}
+style={{ marginRight: "30px" }}
+>
+{feedbacks.length !== 0 ? (
+  <div className={feedbackstyle.faq_list}>
+    {feedbacks &&
+      feedbacks.map((e, i) => {
+        return (
+          <div
+            key={e.id}
+          >
+            <div>
+              <div
+                style={{
+                  textAlign: "end",
+                  paddingRight: "30px",
+                  marginBottom: "-30px",
+                  display: "flex",
+                  justifyContent: "end",
+                }}
+              >
+                <h4
+                  style={{
+                    border: "1px solid #44a6f5",
+                    color: "#44a6f5",
+                    borderRadius: "5px",
+                    display: "inline-block",
+                    padding: "2px",
+                  }}
+                >
+                  {e.attributes.type}
+                </h4>
+                <h4
+                  style={
+                    e.attributes.status === "Open"
+                      ? {
+                          border: "1px solid #F75959",
+                          color: "#F75959",
+                          borderRadius: "5px",
+                          display: "inline-block",
+                          padding: "2px",
+                          marginLeft: "20px",
+                        }
+                      : {
+                          border: "1px solid #4BD76D",
+                          color: "#4BD76D",
+                          borderRadius: "5px",
+                          display: "inline-block",
+                          padding: "2px",
+                          marginLeft: "20px",
+                        }
+                  }
+                >
+                  {e.attributes.status}
+                </h4>
+              </div>
+              <details close>
+                <summary
+                  style={{ width: "70%" }}
+                  title={e.attributes.question}
+                >
+                  {e.attributes.question}
+                </summary>
+
+                {e.attributes.solution ? (
+                  <div
+                    className="faq-content sidedesign"
+                    dangerouslySetInnerHTML={{
+                      __html: md().render(e.attributes.solution),
+                    }}
+                  ></div>
+                ) : null}
+                {/* <div
+                  onClick={backButtonRouteSave}
+                  href={{
+                    pathname: "/docs/feedback",
+                    query: { id: e.id },
+                  }}
+
+                  className={feedbackstyle.text_primary}
+                >
+                  <h4
+                    className={`${feedbackstyle.text_primary} ${feedbackstyle.fs_6}`}
+                    style={{ marginLeft: "15px", color: "black" }}
+                  >
+                    View all comments
+                  </h4>
+                </div> */}
+                <div className={feedbackstyle.text_primary}>
+                  {/* Use the Link component to navigate */}
+                  <Link
+                    to={{
+                      pathname: "/feedback",
+                      search: `?id=${e.id}`, // Use search for query parameters
+                    }}
+                    onClick={backButtonRouteSave}
+                    className={feedbackstyle.text_primary}
+                    style={{
+                      marginLeft: "15px",
+                      color: "black",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <h4 className={`${feedbackstyle.fs_6}`}>
+                      View all comments
+                    </h4>
+                  </Link>
+                </div>
+              </details>
+            </div>
+          </div>
+        );
+      })}
+  </div>
+) : (
+  <>
+    <div style={{ padding: "20px", marginTop: "-40px" }}>
+      <h2>No Feedback data found</h2>
+    </div>
+  </>
+)}
+
+<div>
+  <Modal isOpen={modalIsOpen} onClose={handleModalClose}>
+    <h2>Feedback</h2>
+
+    <ModalBody>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup
+          style={{
+            marginBottom: "20px",
+          }}
+        >
+          <Input
+            placeholder="Select type"
+            name="type"
+            type="select"
+            className={typeError ? `${feedbackstyle.is_invalid}` : ""}
+            onChange={handleTypeChange}
+          >
+            <option value="">Select Type</option>
+            <option value="Error">Error</option>
+            <option value="Feedback">Feedback</option>
+          </Input>
+
+          {typeError && (
+            <FormFeedback type="invalid" style={{ color: "red" }}>
+              {typeError}
+            </FormFeedback>
+          )}
+        </FormGroup>
+        <FormGroup
+          style={{
+            marginBottom: "20px",
+          }}
+        >
+          <Label for="exampleEmail">Question</Label>
+          <Input
+            type="text"
+            name="question"
+            id="question"
+            placeholder="Type Questions"
+            style={{
+              width: "97%",
+              height: "1rem",
+              marginTop: ".5rem",
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              backgroundColor: "transparent",
+              color: "black",
+            }}
+            className={
+              questionError ? `${feedbackstyle.is_invalid}` : ""
+            }
+            onChange={handleQuestionChange}
+          />
+          {questionError && (
+            <FormFeedback type="invalid" style={{ color: "red" }}>
+              {questionError}
+            </FormFeedback>
+          )}
+        </FormGroup>
+        <FormGroup
+          style={{
+            marginBottom: "20px",
+          }}
+        >
+          <Label for="examplePassword">Solution</Label>
+          <Editor
+            ref={mdEditor}
+            //  onChange={(data) =>
+            //   handleEditorChange({
+            //             target: { name: "description", value: data.text },
+            //           })
+            //         }
+            onChange={handleEditorChange}
+            style={{ height: "260px" }}
+            className={solutionError ? "is-invalid" : ""}
+            renderHTML={(text) => <ReactMarkdown children={text} />}
+          />
+          {solutionError && (
+            <FormFeedback type="invalid" style={{ color: "red" }}>
+              {solutionError}
+            </FormFeedback>
+          )}
+        </FormGroup>
+
+        {/* <Button
+          type="submit"
+          id={feedbackstyle.bg_blue}
+          className={`${feedbackstyle.bg_blue} ${feedbackstyle.btn}`}
+          style={{
+            width: "auto",
+            height: "38px",
+            fontSizeL: "15px",
+          }}
+        >
+          Submit
+        </Button> */}
+        <Button
+          type="submit"
+          className="bttn"
+          id="bg_blue"
+          style={{
+            height: "50px",
+            width: "120px",
+            margin: "20px",
+          }}
+        >
+          Submit
+        </Button>
+      </Form>
+    </ModalBody>
+  </Modal>
+</div>
+</div>
