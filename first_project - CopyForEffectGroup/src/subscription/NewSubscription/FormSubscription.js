@@ -2,17 +2,21 @@ import React, { useEffect, useReducer, useState } from 'react'
 import "./FormSubscription.css"
 const formReducerFn =(latestState,action)=>{
     if(action.type==="TITLE"){
-        return {...latestState,userTitle:action.value}
+        return {...latestState,userTitle:action.val}
     }
     else if(action.type==='DATE'){
-
+        return {...latestState,userDate:action.val}
+    }
+    else if(action.type==='AMOUNT'){
+        return {...latestState,userAmount:action.val}
     }
     return {userTitle:"",userDate:"",userAmount:""}
 }
 const FormSubscription = (props) => {
     // const [myState,setMyState]=useReducer((latestStateValue,action)=>{
+        // logic
     //     return latestStateValue
-    // },'state',()=>{})
+    // },'initial value state',()=>{// api call})
     const [isValid, setIsValid]=useState(true)
     // first approch
     // const [userTitle, setUserTitle]= useState()
@@ -42,7 +46,7 @@ const FormSubscription = (props) => {
     if(events.target.value.trim().length>0){
         setIsValid(true)
     }
-    setFormReducer({type:'TITLE', value:events.target.value})
+    setFormReducer({type:'TITLE', val:events.target.value})
     // setForm((prevState)=>{
     //     return {...form,userTitle:events.target.value}
     // })
@@ -54,7 +58,7 @@ const FormSubscription = (props) => {
           // second approch
         // setForm({...form,userDate:events.target.value})
         // third approch
-        setFormReducer({type:'DATE',value:events.target.value})
+        setFormReducer({type:'DATE',val:events.target.value})
         // setForm((prevState)=>{
         //     return {...form,userDate:events.target.value}
         // })
@@ -65,7 +69,7 @@ const FormSubscription = (props) => {
           // second approch
         // setForm({...form,userAmount:events.target.value})
         // third approch
-        setFormReducer({type:'AMOUNT',value:events.target.value})
+        setFormReducer({type:'AMOUNT',val:events.target.value})
         // setForm((prevState)=>{
         //     return {...form,userAmount:events.target.value}
         // })
@@ -77,6 +81,7 @@ const FormSubscription = (props) => {
         //     setIsValid(false)
         //     return
         // }
+        // const subscription={title:form.userTitle, amount:form.userAmount, date: new Date(form.userDate)}
         const subscription={title:formReducer.userTitle, amount:formReducer.userAmount, date: new Date(formReducer.userDate)}
         props.onSave(subscription)
         console.log("form submit",subscription)
